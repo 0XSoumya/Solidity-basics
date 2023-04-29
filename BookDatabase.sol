@@ -8,6 +8,9 @@ contract Books{
     function AddBook(uint _id, string memory _title, string memory _author) public{
         books[_id] = Book(_title, _author);
     }
-
+    mapping(address => mapping(uint => Book)) public MyBooks;
+    function AddMyBook(uint _id, string memory _title, string memory _author) public{
+        MyBooks[msg.sender][_id] = Book(_title, _author);
+    }
     
 }        
